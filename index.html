@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sede Electrónica de la UAM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sede Electrónica de la UAM</h2>
+        <p><strong>Validación de copias auténticas emitidas por la UAM</strong></p>
+        <p>Introduzca el Código seguro de verificación</p>
+        <input type="text" id="codeInput" placeholder="Introduce el código aquí">
+        <button onclick="validateCode()">Validar</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function validateCode() {
+            const code = document.getElementById("codeInput").value.trim();
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "";
+
+            if (code === "0195-37F1-5FA5S0E0D-3A9C") {
+                const img = document.createElement("img");
+                img.src = "dd.png";
+                resultDiv.appendChild(img);
+            } else {
+                const error = document.createElement("div");
+                error.className = "error";
+                error.textContent = "Código inválido";
+                resultDiv.appendChild(error);
+            }
+        }
+    </script>
+</body>
+</html>
